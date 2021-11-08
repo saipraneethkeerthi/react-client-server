@@ -4,8 +4,10 @@ import BaseController from "../controllers";
 // import validator from 'validator'
 
 export default function SignUp() {
-  const [username, setUser] = useState("");
-  const [password, setPass] = useState("");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const checkUpperCase = (string) => /[A-Z]/.test(string);
@@ -46,9 +48,9 @@ export default function SignUp() {
   };
 
   const validateDetails = () => {
-    if (passwordValidator(password) && userNameValidator(username)) {
-      const body = { username,password };
-      let url = "http://localhost:5000/create";
+    if (passwordValidator(password)) {
+      const body = { user_name:userName, password,email };
+      let url = "http://localhost:1109/create";
 
       const success = (res) => {
         console.log("Success", res);
@@ -79,20 +81,25 @@ export default function SignUp() {
           placeholder="Enter userName"
           className="form-control mb-3"
           onChange={(event) => {
-            setUser(event.target.value);
+            setUserName(event.target.value);
           }}
-          value={username}
+          value={userName}
         />
         <input
           type="mail"
           placeholder="Enter your mail"
           className="form-control mb-3"
+          onChange={(event) => {
+            setEmail(event.target.value);
+          }}
+          value={email}
         />
         <input
           type="password"
           placeholder="Enter your password"
           className="form-control mb-3"
-          onChange={(event) => setPass(event.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
+          value={password}
         />
         <label class="form-label" for="form14">
           Example label
@@ -101,6 +108,8 @@ export default function SignUp() {
           type="password"
           placeholder="confirm your password"
           className="form-control mb-3"
+          onChange={(event) => setPassword2(event.target.value)}
+          value={password2}
         />
       </div>
       <div className="text-center">
