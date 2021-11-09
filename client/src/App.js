@@ -1,21 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import SignUp from './components/SignUp'
-import Header from './components/Header'
-import Footer from './components/Footer'
-
-import Body from './components/Body'
-
+import Signup from './components/Signup'
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <SignUp/>
-      <Body/>
-      <Footer/>
-       
-    </div>
+    <>
+      <Signup/>
+    </>
   );
 }
 

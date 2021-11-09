@@ -7,7 +7,7 @@ export default function SignUp() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
+  const [password2, setPassword2] = useState("");     
   const [errorMessage, setErrorMessage] = useState("");
 
   const checkUpperCase = (string) => /[A-Z]/.test(string);
