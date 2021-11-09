@@ -1,14 +1,33 @@
 import React,{useState} from 'react';
+import BaseController from "../../controllers"
 
 const Signup = () => {
 
 const submitUserDetails = ()=>{
-    const body = {userName,email,number}  
-    console.log(body)   
+    const body = {user_name:userName,password,gender,phone_no:number}  
+    let url = "http://localhost:1109/create";
+
+      const success = (res) => {
+        console.log("Success", res);
+        alert("User created successfully")
+      };
+      const failure = (err) => {
+        console.log("Error", err);
+      };
+      BaseController.sendRequest(
+        url,
+        "post",
+        body,
+        false,
+        null,
+        success,
+        failure
+      );  
 }
     const [userName,setUserName]=useState("");
-    const [email,setPassword]=useState("");
+    const [password,setPassword]=useState("");
     const [number,setNumber]=useState("")
+    const [gender,setGender]=useState("")
     return (
         <div className="container d-flex flex-column align-items-center">
             <div className="card w-75 d-flex flex-column  align-items-center ">
@@ -25,9 +44,9 @@ const submitUserDetails = ()=>{
                         <input type="password" className="form-control mb-3 w-75" placeholder="Choose Password" onChange={(event)=>setPassword(event.target.value)} />
                         <input type="number" className="form-control mb-3 w-75" placeholder="Mobile Number(For order status updates)" onChange={(event)=>setNumber(event.target.value)}/>
                         <div className="d-flex flex-row">
-                        <input type="radio"  name="gender" id="genderMale" value="Male" checked />
+                        <input type="radio"  name="gender" id="genderMale" value="Male" checked={gender==="Male"} onClick={()=>setGender("Male")} />
                         <label for="genderMale">Male</label>
-                        <input type="radio" className="form-control mb-3" name="gender" id="genderFemale" value="Female" class="ml-2" />
+                        <input type="radio" className="form-control mb-3" name="gender" id="genderFemale" checked={gender==="Female"} value="Female" class="ml-2" onClick={()=>setGender("Female")} />
                         <label for="genderFemale">Female</label>
                         </div>
                     </div>
