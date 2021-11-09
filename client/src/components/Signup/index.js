@@ -1,6 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 const Signup = () => {
+
+const submitUserDetails = ()=>{
+    const body = {userName,email,number}  
+    console.log(body)   
+}
+    const [userName,setUserName]=useState("");
+    const [email,setPassword]=useState("");
+    const [number,setNumber]=useState("")
     return (
         <div className="container d-flex flex-column align-items-center">
             <div className="card w-75 d-flex flex-column  align-items-center ">
@@ -13,9 +21,9 @@ const Signup = () => {
                 <p>-OR USING EMAIL</p>
                 <div className="container d-flex flex-column align-items-center">
                     <div className="card w-50 d-flex flex-column align-items-center">
-                        <input type="text" className="form-control mt-3 mb-3 w-75" placeholder="Your Email Address" />
-                        <input type="password" className="form-control mb-3 w-75" placeholder="Choose Password" />
-                        <input type="number" className="form-control mb-3 w-75" placeholder="Mobile Number(For order status updates)"></input>
+                        <input type="text" className="form-control mt-3 mb-3 w-75" placeholder="Your Email Address" onChange={(event)=>setUserName(event.target.value)} />
+                        <input type="password" className="form-control mb-3 w-75" placeholder="Choose Password" onChange={(event)=>setPassword(event.target.value)} />
+                        <input type="number" className="form-control mb-3 w-75" placeholder="Mobile Number(For order status updates)" onChange={(event)=>setNumber(event.target.value)}/>
                         <div className="d-flex flex-row">
                         <input type="radio"  name="gender" id="genderMale" value="Male" checked />
                         <label for="genderMale">Male</label>
@@ -23,7 +31,7 @@ const Signup = () => {
                         <label for="genderFemale">Female</label>
                         </div>
                     </div>
-                        <button type="button" className="btn btn-primary mt-3">Submit</button>
+                        <button type="button" className="btn btn-primary mt-3" onClick = {()=>submitUserDetails()}>Submit</button>
                 </div>
             </div>
         </div>
