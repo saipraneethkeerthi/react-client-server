@@ -3,6 +3,10 @@ import BaseController from "../../controllers"
 
 import Logo from "../../images/logo.png"
 const Signup = () => {
+    const [userName,setUserName]=useState("");
+    const [password,setPassword]=useState("");
+    const [number,setNumber]=useState("")
+    const [gender,setGender]=useState("")
 
 const submitUserDetails = ()=>{
     const body = {user_name:userName,password,gender,phone_no:number}  
@@ -10,7 +14,10 @@ const submitUserDetails = ()=>{
 
       const success = (res) => {
         console.log("Success", res);
-        alert("User created successfully")
+        if(window.confirm("User created successfully")){
+            window.location.href = "/login"
+        }
+       
       };
       const failure = (err) => {
         console.log("Error", err);
@@ -25,10 +32,7 @@ const submitUserDetails = ()=>{
         failure
       );  
 }
-    const [userName,setUserName]=useState("");
-    const [password,setPassword]=useState("");
-    const [number,setNumber]=useState("")
-    const [gender,setGender]=useState("")
+    
     return (
         <div className="container d-flex flex-column align-items-center">
             <div className="card w-75 d-flex flex-column  align-items-center shadow ">
