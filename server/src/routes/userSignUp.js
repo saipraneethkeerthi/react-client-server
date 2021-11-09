@@ -5,12 +5,15 @@ const User=require("../modelSchema/userSignUp")
 const router = new express.Router();
 
 router.get('/', (req, res)=>{
-    res.status(200).send("server is sending some data.....")
-})
+   User.find({},(err,data)=>{
+       if(err) res.status(404).send(err)
+       else res.status(200).send(data)
+   })
+   })
 router.post('/create', (req, res)=>{
     console.log(req.body)
-    User.insertMany(req.body)
-    res.status(200).send("post is done")
+    User.insertMany(req.body).then((data)=> res.status(200).send(data))
+   
 })
 
 module.exports=router; 
