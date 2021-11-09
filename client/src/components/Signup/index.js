@@ -13,9 +13,9 @@ const Signup = () => {
                 <p>-OR USING EMAIL</p>
                 <div className="container d-flex flex-column align-items-center">
                     <div className="card w-50 d-flex flex-column align-items-center">
-                        <input type="text" className="form-control mb-3" placeholder="Your Email Address" />
-                        <input type="password" className="form-control mb-3" placeholder="Choose Password" />
-                        <input type="number" className="form-control mb-3" placeholder="Mobile Number(For order status updates)"></input>
+                        <input type="text" className="form-control mt-3 mb-3 w-75" placeholder="Your Email Address" />
+                        <input type="password" className="form-control mb-3 w-75" placeholder="Choose Password" />
+                        <input type="number" className="form-control mb-3 w-75" placeholder="Mobile Number(For order status updates)"></input>
                         <div className="d-flex flex-row">
                         <input type="radio"  name="gender" id="genderMale" value="Male" checked />
                         <label for="genderMale">Male</label>
@@ -23,7 +23,7 @@ const Signup = () => {
                         <label for="genderFemale">Female</label>
                         </div>
                     </div>
-                        <button type="button" className="btn btn-primary">Submit</button>
+                        <button type="button" className="btn btn-primary mt-3">Submit</button>
                 </div>
             </div>
         </div>
