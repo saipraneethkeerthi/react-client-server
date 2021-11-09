@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-
+import Logo from "../../images/logo.png"
 const Signup = () => {
 
 const submitUserDetails = ()=>{
@@ -11,12 +11,13 @@ const submitUserDetails = ()=>{
     const [number,setNumber]=useState("")
     return (
         <div className="container d-flex flex-column align-items-center">
-            <div className="card w-75 d-flex flex-column  align-items-center ">
+            <div className="card w-75 d-flex flex-column  align-items-center shadow ">
+                <img style={{width:"100px"}} src={Logo}/>
                 <h1>Signup with Myntra</h1>
                 <p>Easily sign up with</p>
                 <div className="d-flex flex-row ">
-                    <button style={{ marginRight: "5px" }} type="button" className="btn btn-secondary ">FACEBOOK</button>
-                    <button type="button" className="btn btn-secondary">GOOGLE</button>
+                    <button style={{ marginRight: "5px" }} type="button" className="btn btn-primary">FACEBOOK</button>
+                    <button type="button" className="btn btn-danger">GOOGLE</button>
                 </div>
                 <p>-OR USING EMAIL</p>
                 <div className="container d-flex flex-column align-items-center">
