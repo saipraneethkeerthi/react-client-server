@@ -1,5 +1,5 @@
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
-import SignUp from './components/SignUp'
+import Signup from './components/Signup'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
@@ -14,8 +14,8 @@ function App() {
     < >
       <Router> 
         <Switch>
-          <Route exact path="/register" render={()=>PageRender(SignUp)}/> 
-          <Route exact path="/login" render={()=>PageRender(SignUp)}/> 
+          <Route exact path="/register" render={()=>PageRender(Signup)}/> 
+          <Route exact path="/login" render={()=>PageRender(Signup)}/> 
         </Switch>
       </Router>
        
