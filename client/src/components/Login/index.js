@@ -17,7 +17,7 @@ const Login = () => {
           };
           const failure = (err) => {
             console.log("Error", err);
-            alert("invalid user name or password")
+            alert("Invalid uername or password")
           };
           BaseController.sendRequest(
             url,

@@ -30,23 +30,24 @@ class Controller {
       body.method = requestType;
       fetch(url, body)
         .then(function (response) {
-          if (response.ok) {
+          console.log(response)
+          
             if (response.status === 204) {
               success({});
-            } else {
+            } else if(response.status === 200) {
               response.json().then(function (data) {
                 success(data);
               });
             }
-          } else {
-            if (response.status !== 415) {
+            else if(response.status === 404) {
               response.json().then(function (data) {
                 failure(data);
               });
-            } else {
+            }
+            else {
               failure({});
             }
-          }
+           
         })
         .catch(function (error) {
           failure(error);

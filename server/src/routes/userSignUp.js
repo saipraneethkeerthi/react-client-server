@@ -17,10 +17,9 @@ router.post('/user/create', (req, res)=>{
 })
 router.post('/user/login', (req, res)=>{
     console.log(req.body)
-    User.find(req.body).then((data)=>{
-        console.log(data)
+    User.find(req.body,(err,data)=>{
         if(data.length) res.status(200).send(data)
-        else res.status(404).send("Invalid userName or password")
+        else res.status(415).send(err)
     })
    
 })
