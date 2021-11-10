@@ -8,12 +8,13 @@ const Dashboard = () => {
             
             <div className = "card d-flex flex-column align-items-center" style = {{borderRadius:"10px",backgroundColor:"white",padding:"100px",width:"50vw",height:"80vh"}}>
             <h1>welcome to Myntra</h1> 
-            <Link to = "/Login">
+            <p>You have successfully logged in</p>
+            <Link to = "/login">
                 <div>
                 <button className = 'btn btn-primary mb-3'>Login</button>
                 </div>
                 </Link>
-                <Link to = "register">
+                <Link to = "/register">
                 <div>
                 <button className = 'btn btn-primary'>Signup</button> 
                 </div> 
