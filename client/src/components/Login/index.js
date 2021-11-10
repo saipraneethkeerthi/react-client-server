@@ -32,7 +32,7 @@ const Login = () => {
     
     return (
         <>
-        <div className="container d-flex flex-column align-items-center">
+        <div className="container d-flex flex-column align-items-center mt-5">
             <div className="card w-50 d-flex flex-column  align-items-center shadow" >
                 <img style={{width:"100px"}} src={Logo}/>
                 <h1>Log In to Myntra</h1>
