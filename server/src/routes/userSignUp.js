@@ -10,9 +10,18 @@ router.get('/', (req, res)=>{
        else res.status(200).send(data)
    })
    })
-router.post('/create', (req, res)=>{
+router.post('/user/create', (req, res)=>{
     console.log(req.body)
     User.insertMany(req.body).then((data)=> res.status(200).send(data))
+   
+})
+router.post('/user/login', (req, res)=>{
+    console.log(req.body)
+    User.find(req.body).then((data)=>{
+        console.log(data)
+        if(data.length) res.status(200).send(data)
+        else res.status(404).send("Invalid userName or password")
+    })
    
 })
 
