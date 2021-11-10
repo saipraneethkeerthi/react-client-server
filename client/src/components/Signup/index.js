@@ -9,13 +9,23 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [number, setNumber] = useState("");
   const [gender, setGender] = useState("");
+  
+  function validateEmail (userName)
+{
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (userName.match(regexEmail)) {
+    return true; 
+  } else {
+    return false; 
+  }
+}
 
   const checkUpperCase = (string) => /[A-Z]/.test(string);
   const checkLowerCase = (string) => /[a-z]/.test(string);
   const checkSymbol = (string) =>
     /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(string);
   const checkNum = (string) => /\d/.test(string);
-
+  
   const passwordValidator = (str) => {
     if (
       str.length > 8 &&
@@ -31,7 +41,7 @@ const Signup = () => {
   };
 
   const submitUserDetails = () => {
-    if(passwordValidator(password) && userName && number ){
+    if(passwordValidator(password) && validateEmail(userName) && number ){
     const body = { user_name: userName, password, gender, phone_no: number };
     let url = "http://localhost:1109/user/create";
 
