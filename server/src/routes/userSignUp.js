@@ -4,13 +4,15 @@ const User=require("../modelSchema/userSignUp")
 
 const router = new express.Router();
 
+const {validateEmail, validatePassword} = require("../middlewares/middlewares")
+
 router.get('/', (req, res)=>{
    User.find({},(err,data)=>{
        if(err) res.status(404).send(err)
        else res.status(200).send(data)
    })
    })
-router.post('/user/create', (req, res)=>{
+router.post('/user/create',validateEmail, validatePassword, (req, res)=>{
     console.log(req.body)
     User.insertMany(req.body).then((data)=> res.status(200).send(data))
    
