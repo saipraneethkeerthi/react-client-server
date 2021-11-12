@@ -13,7 +13,12 @@ import BaseController from '../../../../controllers'
 const Login = () => {
 
   var body;
-
+/**
+ * 
+ * @param {event} event 
+ * It will take the event target value and checks wheather it's an empty string or not.
+ * if Empty 
+ */
   const validateUserName = (event) => {
     if(event.target.value === ""){
       setUserErr("*Please fill this field")
@@ -23,6 +28,7 @@ const Login = () => {
     }
   }
 
+  
   const validatepassword = (event) => {  
     if(event.target.value === ""){
       setPasswordErr("*Please fill this field")

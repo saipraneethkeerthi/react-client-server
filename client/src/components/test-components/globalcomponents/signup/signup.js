@@ -27,8 +27,13 @@ const Signup = () => {
     if(event.target.value === ""){
       setEmailErr("*Please fill this field")
     }else{
-      setEmailErr("")
+      if(emailValidator(event.target.value)){
+        setEmailErr("")
       setEmail(event.target.value)
+      }else{
+        setEmailErr("*Please Enter Valid Email Address")
+      }
+      
     }
   }
 
@@ -36,8 +41,13 @@ const Signup = () => {
     if(event.target.value === ""){
       setPasswordErr("*Please fill this field")
     }else{
-      setPasswordErr("")
-      setPassword(event.target.value)
+      if(passwordValidator(event.target.value)){
+        setPasswordErr("")
+        setPassword(event.target.value)
+      }else{
+        setPasswordErr("*Enter Strong Password")
+      }
+      
     }
   }
 
@@ -53,6 +63,36 @@ const Signup = () => {
       setPassErr("passowrd and Confirm Password should be same*")
     }
   }
+
+  
+  function emailValidator(userName) {
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (userName.match(regexEmail)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  const checkUpperCase = (string) => /[A-Z]/.test(string);
+  const checkLowerCase = (string) => /[a-z]/.test(string);
+  const checkSymbol = (string) =>
+    /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(string);
+  const checkNum = (string) => /\d/.test(string);
+
+  const passwordValidator = (str) => {
+    if (
+      str.length > 8 &&
+      checkUpperCase(str) &&
+      checkLowerCase(str) &&
+      checkSymbol(str) &&
+      checkNum(str)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   const submitUserDetails = () => {
     if (!userErr ||!emailErr||!passwordErr ||!errMsg) {
