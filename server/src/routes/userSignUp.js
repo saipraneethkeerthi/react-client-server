@@ -17,7 +17,7 @@ router.post('/user/create',validateEmail, validatePassword, (req, res)=>{
     User.insertMany(req.body).then((data)=> res.status(200).send(data))
    
 })
-router.post('/user/login', (req, res)=>{
+router.post('/user/login',validateEmail, (req, res)=>{
     console.log(req.body)
     User.find(req.body,(err,data)=>{
         if(data.length) res.status(200).send(data)
