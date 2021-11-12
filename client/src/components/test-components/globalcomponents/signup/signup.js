@@ -13,7 +13,12 @@ import BaseController from "../../../../controllers"
 const Signup = () => {
 
   var body;
-
+/**
+ * 
+ * @param {event} event 
+ * It will take the event target value and checks wheather it's an empty string or not.
+ * if Empty it will return an error message
+ */
   const validateUserName = (event) => {
     if(event.target.value === ""){
       setUserErr("*Please fill this field")
@@ -50,7 +55,11 @@ const Signup = () => {
       
     }
   }
-
+/**
+ * 
+ * @param {String} event 
+ * it will check wheather the password and confirm password or same
+ */
   const validateConfirmPassword = (event) => {
     if(event.target.value === password){
       setConfirmPassword(event.target.value)
@@ -64,7 +73,13 @@ const Signup = () => {
     }
   }
 
-  
+  /**
+   * 
+   * @param {String} userName 
+   * @returns Boolen
+   * it will check weather the email is valid email or not and
+   * the email should contain @ symbol and "." and after dot it should contain only less than 3 letters
+   */
   function emailValidator(userName) {
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (userName.match(regexEmail)) {
@@ -79,7 +94,12 @@ const Signup = () => {
   const checkSymbol = (string) =>
     /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(string);
   const checkNum = (string) => /\d/.test(string);
-
+/**
+ * 
+ * @param {String} str 
+ * @returns Boolen
+ * It will check for a one capital letter, one small letter, one special symbol, one number
+ */
   const passwordValidator = (str) => {
     if (
       str.length > 8 &&
@@ -93,7 +113,10 @@ const Signup = () => {
       return false;
     }
   };
-
+/**
+ * it will make  a API call to the server and return
+ * it will call the "http://localhost:1109/user/create" URL
+ */
   const submitUserDetails = () => {
     if (!userErr ||!emailErr||!passwordErr ||!errMsg) {
       const body = { user_name: userName, password, phone_no: phone,email };

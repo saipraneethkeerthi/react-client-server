@@ -1,5 +1,9 @@
 import React from 'react';
-
+/**
+ * 
+ * @param {*} props 
+ * @returns  label and input tag with a error message in it
+ */
 const Input = (props) => {
   const {lable, placeholder, type, className, onChange, value, err} = props;
 

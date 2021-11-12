@@ -17,7 +17,7 @@ const Login = () => {
  * 
  * @param {event} event 
  * It will take the event target value and checks wheather it's an empty string or not.
- * if Empty 
+ * if Empty it will return an error message
  */
   const validateUserName = (event) => {
     if(event.target.value === ""){
@@ -48,7 +48,10 @@ const Login = () => {
       setErrClass("d-block")
     }
   }
-
+/**
+ * it will make  a API call to the server and return
+ * it will call the "http://localhost:1109/user/login" URL
+ */
   const loginUserDetails = ()=>{
     const body = {user_name:userName,password}  
     let url = "http://localhost:1109/user/login";

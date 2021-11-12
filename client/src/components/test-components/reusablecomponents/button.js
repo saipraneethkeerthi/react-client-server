@@ -1,5 +1,9 @@
 import React from 'react';
-
+/**
+ * 
+ * @param {*} props 
+ * @returns button comp with 
+ */
 const Button = (props) => {
   const {className, onClick, value} = props;
   return (
