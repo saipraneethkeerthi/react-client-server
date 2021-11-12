@@ -52,7 +52,7 @@ const Login = () => {
       <div className="container">
       <div className="row justify-content-center align-items-center">
           <div className="card text-center p-3 shadow-lg p-5 col-6">
-          <Logo iconName="fab fa-google-wallet fa-5x m-3"/>
+          <Logo height="50px" width="50px" className="mx-auto"/>
             <div className="from mt-2">
               <Input className="form-control" type="text" placeholder="User Name" err={userErr} onChange={(event) => validateUserName(event)} required />
               <Input className="form-control mt-2" type="password" placeholder="Password" err={passwordErr} onChange={(event) => validatepassword(event)} required />

@@ -80,7 +80,7 @@ const Signup = () => {
       <div className="container">
         <div className="row justify-content-center align-items-center">
           <div className="card text-center shadow-lg p-5 col-12 col-md-6">
-          <Logo height="20px" width="20px"/>
+          <Logo height="50px" width="50px" className="mx-auto"/>
             <div className="from mt-2">
               <Input className="form-control" type="text" placeholder="User Name"  err={userErr} onChange={(event) => validateUserName(event)}/>
               <Input className="form-control mt-2" type="email" placeholder="Email" err={emailErr} onChange={(event) => validateEmail(event)} required />
