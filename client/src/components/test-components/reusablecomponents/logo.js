@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Logo from "../../images/logo.png";
+import Logoimg from "../../images/logo.png";
 
 const Logo = (props) => {
   const {width, height} = props
   return (
     <>
-      <img style={{width:width, height:height}} src={Logo}/>
+      <img style={{width:width, height:height}} src={Logoimg}/>
       {/* <i class={iconName} onclick={() => window.location.href="./"}></i> */}
     </>
   );
