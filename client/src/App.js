@@ -1,10 +1,8 @@
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 import Signup from './components/test-components/globalcomponents/signup/signup'
 import Login from "./components/test-components/globalcomponents/login/login"
-import Dashboard from './components/Dashboard'
-import Footer from './components/Footer'
-
-import Body from './components/Body'
+import Landing from './components/test-components/globalcomponents/Landing'
+import Dashboard from './components/test-components/globalcomponents/dashboard/dashboard'
 
 
 function App() {
@@ -17,7 +15,8 @@ function App() {
         <Switch>
           <Route exact path="/register" render={()=>PageRender(Signup)}/> 
           <Route exact path="/login" render={()=>PageRender(Login)}/> 
-          <Route exact path="/" render={()=>PageRender(Dashboard)}/> 
+          <Route exact path="/" render={()=>PageRender(Landing)}/> 
+          <Route exact path="/dashboard" render={()=>PageRender(Dashboard)}/> 
         </Switch>
       </Router>
        
