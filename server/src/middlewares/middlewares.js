@@ -23,10 +23,10 @@ const validatePassword = (req, res, next) => {
   const password = req.body.password;
   if (
     password.length > 8 &&
-    checkUpperCase(str) &&
-    checkLowerCase(str) &&
-    checkSymbol(str) &&
-    checkNum(str)
+    checkUpperCase(password) &&
+    checkLowerCase(password) &&
+    checkSymbol(password) &&
+    checkNum(password)
   ) {
     next()
   } else {
