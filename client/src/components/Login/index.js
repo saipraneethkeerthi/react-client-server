@@ -13,7 +13,6 @@ const Login = () => {
           const success = (res) => {
             console.log("Success", res);
             window.location.href = "/dashboard"
-           
           };
           const failure = (err) => {
             console.log("Error", err);

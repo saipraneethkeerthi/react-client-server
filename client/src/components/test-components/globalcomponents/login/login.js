@@ -57,7 +57,7 @@ const Login = () => {
               <Input className="form-control" type="text" placeholder="User Name" err={userErr} onChange={(event) => validateUserName(event)} required />
               <Input className="form-control mt-2" type="password" placeholder="Password" err={passwordErr} onChange={(event) => validatepassword(event)} required />
             </div>
-            <Hyperlinks className="text-end" referTo="/signup" text="New to Myntra?" textSize="10px"/>
+            <Hyperlinks className="text-end" referTo="/register" text="New to Myntra?" textSize="10px"/>
             <div className="d-flex flex-row justify-content-center mt-3">
               <Button className="btn btn-primary" onClick={onSubmit} value="Login"/>
             </div>
