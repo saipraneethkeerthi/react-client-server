@@ -8,6 +8,7 @@ import Button from "../../reusablecomponents/button"
 import Hyperlinks from "../../reusablecomponents/hyperlinks"
 
 import "./signup.css"
+import BaseController from "../../../../controllers"
 
 const Signup = () => {
 
@@ -53,10 +54,41 @@ const Signup = () => {
     }
   }
 
+  const submitUserDetails = () => {
+    if (!userErr ||!emailErr||!passwordErr ||!errMsg) {
+      const body = { user_name: userName, password, phone_no: phone,email };
+      let url = "http://localhost:1109/user/create";
+
+      const success = (res) => {
+        console.log("Success", res);
+        window.location.href = "/login";
+        // if (window.confirm("User created successfully")) {
+          
+        // }
+      };
+      const failure = (err) => {
+        console.log("Error", err);
+      };
+      BaseController.sendRequest(
+        url,
+        "post",
+        body,
+        false,
+        null,
+        success,
+        failure
+      );
+    } else {
+      setErrMsg("Please enter all the fields.")
+      setErrClass("d-block")
+    }
+  };
+
   const onSubmit = () => {
     body = { userName, email, password, confirmPassowrd, phone }
     if (userName && email && password && confirmPassowrd && phone) {
       setErrClass("d-none")
+      submitUserDetails()
     } else {
       setErrMsg("Please enter all the fields.")
       setErrClass("d-block")

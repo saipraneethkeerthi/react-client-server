@@ -8,6 +8,8 @@ import Input from "../../reusablecomponents/input"
 import Button from "../../reusablecomponents/button"
 import Hyperlinks from "../../reusablecomponents/hyperlinks"
 
+import BaseController from '../../../../controllers'
+
 const Login = () => {
 
   var body;
@@ -34,11 +36,37 @@ const Login = () => {
     body = { userName,password}
     if (userName, password) {
       setErrClass("d-none")
+      loginUserDetails()
     } else {
       setErrMsg("Please enter all the fields.")
       setErrClass("d-block")
     }
   }
+
+  const loginUserDetails = ()=>{
+    const body = {user_name:userName,password}  
+    let url = "http://localhost:1109/user/login";
+
+      const success = (res) => {
+        console.log("Success", res);
+        window.location.href = "/dashboard"
+      };
+      const failure = (err) => {
+        console.log("Error", err);
+        setErrMsg("Invalid uername or password")
+        setErrClass("d-block")
+       
+      };
+      BaseController.sendRequest(
+        url,
+        "post",
+        body,
+        false,
+        null,
+        success,
+        failure
+      );  
+}
 
   const [userName, setUserName] = useState()
   const [userErr, setUserErr] = useState()
