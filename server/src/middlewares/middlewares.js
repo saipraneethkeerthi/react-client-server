@@ -8,7 +8,7 @@
 const validateEmail = (req, res, next) => {
   const emailAddress = req.body.email;
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if(emailAddress.match(regexEmail)){
+  if(regexEmail.test(emailAddress)){
     next()
   }
   else{

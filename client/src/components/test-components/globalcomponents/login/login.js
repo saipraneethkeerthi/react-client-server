@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useState } from 'react'
 
 import {Link} from 'react-router-dom'
@@ -9,8 +9,14 @@ import Button from "../../reusablecomponents/button"
 import Hyperlinks from "../../reusablecomponents/hyperlinks"
 
 import BaseController from '../../../../controllers'
+import {useHistory} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {userLoginData} from "../../../../store/actions"
+// import {history} from '../../reusablecomponents/history'
 
 const Login = () => {
+ const history= useHistory()
+ const dispatch=useDispatch()
 
   var body;
 /**
@@ -55,10 +61,11 @@ const Login = () => {
   const loginUserDetails = ()=>{
     const body = {user_name:userName,password}  
     let url = "http://localhost:1109/user/login";
-
-      const success = (res) => {
+    
+    const success = (res) => {
+        dispatch(userLoginData(res))
         console.log("Success", res);
-        window.location.href = "/dashboard"
+        history.push("/dashboard")
       };
       const failure = (err) => {
         console.log("Error", err);

@@ -9,8 +9,15 @@ import Hyperlinks from "../../reusablecomponents/hyperlinks"
 
 import "./signup.css"
 import BaseController from "../../../../controllers"
+import {useDispatch} from 'react-redux'
+import {fetchingUserSignUpData} from '../../../../store/actions'
+import {Link} from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+// import {history} from "../../reusablecomponents/history" 
 
 const Signup = () => {
+  const dispatch=useDispatch()
+  const history = useHistory()
 
   var body;
 /**
@@ -121,10 +128,12 @@ const Signup = () => {
     if (!userErr ||!emailErr||!passwordErr ||!errMsg) {
       const body = { user_name: userName, password, phone_no: phone,email };
       let url = "http://localhost:1109/user/create";
-
+      
       const success = (res) => {
+        dispatch(fetchingUserSignUpData(res))
         console.log("Success", res);
-        window.location.href = "/login";
+        // window.location.href = "/login";
+        history.push('/login'); 
         // if (window.confirm("User created successfully")) {
           
         // }
@@ -186,6 +195,7 @@ const Signup = () => {
             <Hyperlinks className="text-end" referTo="/login" text="Already have an account ?" textSize="10px"/>
             <div className="d-flex flex-row justify-content-center mt-3">
             <Button className="btn btn-primary" onClick={onSubmit} value="Signup"/>
+           <Button className="btn btn-primary" onClick={()=>history.push('/dashboard')} value="next"/>
             </div>
             <div className={errClass}>
               <h5 className="fw-bold text-light bg-danger p-2 mt-3">{errMsg}</h5>
